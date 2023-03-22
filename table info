@@ -1,0 +1,31 @@
+Tables
+User :-
+name , email , password , token ,token exp
+videos:- 
+title , description , url 
+Session :-
+user_id , start_time,end_time,session_time
+UserVideo :-
+user_id , video_id, watch_time,watch_count
+
+Routes:-
+Auth-
+Create a User using: POST "/api/auth/createuser"
+Authenticate a User using: POST "/api/auth/login"
+Get login  User details using: POST "/api/auth/getuser"
+
+Videos-
+Add new video using: POST "/api/videos/addvideos"
+Delete existing video using: DELETE "/api/videos/deletevideos/:id"
+View videos using: GET "/api/videos/videos"
+View videos by title using: GET "/api/videos/videos/:title"
+
+Veiws:-
+Create new user video entry if user_id or video_id is new using: POST "/api/veiws/user-videos"
+Increment watch_count for user video using: PUT "/api/veiws/user-videos/:id/watch" 
+Update watch_time for user videousing: PUT "/api/veiws/user-videos/:id/stop"
+
+UserTime:-
+Start new session using: POST "/api/user/sessions"
+End ongoing session using: PUT "/api/user/sessions/:id/end"
+Get average session time for user using: GET "/api/user/sessions/:user_id/average-time"
